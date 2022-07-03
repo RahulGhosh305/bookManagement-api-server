@@ -23,6 +23,7 @@ const addBook = catchAsync(async (req, res, next) => {
 
 const updateBook = catchAsync(async (req, res, next) => {
     const { bookName, price, authorName } = req.body;
+    console.log(bookName, price, authorName)
     const modify = await BookModel.updateOne({ _id: req.params._id }, { bookName, price, authorName });
     return apiResponse(res, httpStatus.ACCEPTED, { message: "Information Updated" }, modify);
 })

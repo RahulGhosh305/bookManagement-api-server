@@ -9,7 +9,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const xssClean = require("xss-clean");
-const cors = require('./config/cors')
+// const cors = require('./config/cors')
+var cors = require('cors')
 const mongoSanitize = require("express-mongo-sanitize");
 const compression = require("compression");
 const routes = require('./routes');
@@ -28,7 +29,8 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression());
-app.use(cors) // enable cors
+app.use(cors())
+// app.use(cors) // enable cors
 
 // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
 app.enable("trust proxy");

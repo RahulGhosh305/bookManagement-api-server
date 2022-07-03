@@ -11,7 +11,7 @@ const addBook = {
     body: Joi.object({
         bookName: Joi.string().required(),
         authorName: Joi.string().required(),
-        price: Joi.number().required(),
+        price: Joi.string().required(),
     })
 }
 
@@ -22,7 +22,7 @@ const updateBook = {
     body: Joi.object({
         bookName: Joi.string().required(),
         authorName: Joi.string().required(),
-        price: Joi.number().required(),
+        price: Joi.string().required(),
     })
 }
 
